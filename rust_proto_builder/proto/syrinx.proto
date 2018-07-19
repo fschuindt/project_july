@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package Streamer;
+
+service Broadcast {
+  rpc Broadcast (stream Video) returns (BroadcastResponse) {}
+}
+
+service Tune {
+  rpc Tune (TuneRequest) returns (stream Video) {}
+}
+
+message Band {
+  string uid = 1;
+  string key = 2;
+}
+
+message TuneRequest {
+  Band band = 1;
+}
+
+message Video {
+  string index = 1;
+  bytes chunk = 2;
+}
+
+message BroadcastResponse {
+  bool success = 1;
+  Band band = 2;
+}

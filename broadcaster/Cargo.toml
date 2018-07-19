@@ -1,0 +1,12 @@
+[package]
+name = "broadcaster"
+version = "0.1.0"
+authors = ["Fernando Schuindt <f.schuindtcs@gmail.com>"]
+
+[dependencies]
+portaudio       = "~0.7"
+grpc            = "~0.5"
+protobuf        = "~2"
+futures         = "~0.1"
+futures-cpupool = "~0.1"
+tls-api         = "~0.1"

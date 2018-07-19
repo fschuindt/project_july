@@ -1,0 +1,7 @@
+[package]
+name = "rust_proto_builder"
+version = "0.1.0"
+authors = ["Fernando Schuindt <f.schuindtcs@gmail.com>"]
+
+[dependencies]
+protoc-rust-grpc = "0.5.0"
