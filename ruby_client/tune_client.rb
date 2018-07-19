@@ -2,13 +2,11 @@ module SyrinxClient
   class Tune
     def initialize
       @stub = Streamer::Tune::Stub
-        .new('localhost:7172', :this_channel_is_insecure)
+        .new('localhost:7171', :this_channel_is_insecure)
     end
 
     def perform
-      msg = @stub.tune(tune_request)
-
-      p "#{msg.inspect}"
+      @stub.tune(tune_request) { |e| puts e.inspect }
     end
 
     private
