@@ -6,12 +6,20 @@ defmodule Streamer.Servers.Broadcast do
   alias Streamer, as: S
 
   def broadcast(request, _stream) do
-    Logger.info "Started broadcast | Video Index: #{request.index} | Video Chunk: #{request.chunk}"
-
-    S.BroadcastResponse.new(success: true, band: null_band())
+    do_broadcast(request, null_band())
   end
 
-  defp null_band() do
+  defp do_broadcast(request, band) do
+    Logger.info "Started broadcast | Band UID: #{band.uid} | Band Key: #{band.key}"
+
+    Enum.map(request, &(handle(&1)))
+  end
+
+  defp handle(video) do
+    Logger.info "Gathered -> index: #{video.index}, chunk: #{video.chunk}"
+  end
+
+  defp null_band do
     S.Band.new(uid: "000", key: "111")
   end
 end
