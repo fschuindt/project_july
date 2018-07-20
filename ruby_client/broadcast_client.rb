@@ -2,21 +2,36 @@ module SyrinxClient
   class Broadcast
     def initialize
       @stub = Streamer::Broadcast::Stub
-        .new('localhost:7172', :this_channel_is_insecure)
+                .new('localhost:7171', :this_channel_is_insecure)
     end
 
     def perform
-      msg = @stub.broadcast([video, video])
+      reqs = RandomVideo.new(1024)
+      resp = @stub.broadcast(reqs.each)
+      p "response: #{resp.inspect}"
+    end
+  end
 
-      p "#{msg.inspect}"
+  class RandomVideo
+    def initialize(size)
+      @size = size
+    end
+
+    def each
+      return enum_for(:each) unless block_given?
+      @size.times do
+        p video.inspect
+        yield video
+        sleep(rand(1..2))
+      end
     end
 
     private
 
     def video
       Streamer::Video.new(
-        index: "000",
-        chunk: "0b1011010010"
+        index: rand(0..255).to_s,
+        chunk: SecureRandom.uuid
       )
     end
   end
