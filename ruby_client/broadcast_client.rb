@@ -6,23 +6,23 @@ module SyrinxClient
     end
 
     def perform
-      reqs = RandomVideo.new(1024)
+      reqs = RandomVideo.new
       resp = @stub.broadcast(reqs.each)
       p "response: #{resp.inspect}"
     end
   end
 
   class RandomVideo
-    def initialize(size)
-      @size = size
-    end
+    def initialize; end
 
     def each
       return enum_for(:each) unless block_given?
-      @size.times do
-        p video.inspect
-        yield video
-        sleep(rand(1..2))
+      99999.times do
+      # loop do
+        v = video
+
+        p v.inspect
+        yield v
       end
     end
 
