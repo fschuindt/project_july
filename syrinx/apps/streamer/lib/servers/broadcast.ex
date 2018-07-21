@@ -12,11 +12,13 @@ defmodule Streamer.Servers.Broadcast do
   defp do_broadcast(request, band) do
     Logger.info "Started broadcast | Band UID: #{band.uid} | Band Key: #{band.key}"
 
-    Enum.map(request, &(handle(&1)))
+    Enum.map(request, &(handle/1))
+
+    S.BroadcastResponse.new(success: true, band: band)
   end
 
   defp handle(video) do
-    Logger.info "Gathered -> index: #{video.index}, chunk: #{video.chunk}"
+    IO.puts "Gathered -> index: #{video.index}, chunk: #{video.chunk}"
   end
 
   defp null_band do
