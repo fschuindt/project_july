@@ -26,15 +26,9 @@ defmodule Streamer.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:grpc, github: "tony612/grpc-elixir"} #,
-      {:grpc, "~> 0.3.0-alpha.2"},
-      {:secure_random, "~> 0.5.1"}
-      # {:plug, "~> 1.6"}
-
-      # {:poison, "~> 3.1"}
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
-      # {:sibling_app_in_umbrella, in_umbrella: true},
+      {:secure_random, "~> 0.5.1"},
+      {:grpc, github: "tony612/grpc-elixir", branch: "master"}
+      # {:grpc, "~> 0.3.0-alpha.2"},
     ]
   end
 end

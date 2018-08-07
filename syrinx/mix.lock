@@ -1,9 +1,9 @@
 %{
   "cowboy": {:hex, :cowboy, "2.4.0", "f1b72fabe9c8a5fc64ac5ac85fb65474d64733d1df52a26fad5d4ba3d9f70a9f", [:rebar3], [{:cowlib, "~> 2.3.0", [hex: :cowlib, repo: "hexpm", optional: false]}, {:ranch, "~> 1.5.0", [hex: :ranch, repo: "hexpm", optional: false]}], "hexpm"},
-  "cowlib": {:hex, :cowlib, "2.3.0", "bbd58ef537904e4f7c1dd62e6aa8bc831c8183ce4efa9bd1150164fe15be4caa", [:rebar3], [], "hexpm"},
+  "cowlib": {:git, "https://github.com/ninenines/cowlib.git", "804d5262a3369623683213b14d6b936066fc7aab", [tag: "2.4.0"]},
   "distillery": {:hex, :distillery, "1.5.3", "b2f4fc34ec71ab4f1202a796f9290e068883b042319aa8c9aa45377ecac8597a", [:mix], [], "hexpm"},
-  "grpc": {:hex, :grpc, "0.3.0-alpha.2", "ad5654d5dad44b99e8afa3ec4d540391c38a0f64001f21ba88e36720cb2014e5", [:mix], [{:cowboy, "~> 2.2", [hex: :cowboy, repo: "hexpm", optional: false]}, {:gun, ">= 1.0.0-pre.5", [hex: :gun, repo: "hexpm", optional: false]}, {:protobuf, "~> 0.5", [hex: :protobuf, repo: "hexpm", optional: false]}], "hexpm"},
-  "gun": {:hex, :gun, "1.0.0-pre.5", "69a11e259d5bf7fd9b1a74e1aa98e7979c2ae3ebbda27fe1b1c9cb4481f23ba3", [:rebar3], [{:cowlib, "~> 2.1", [hex: :cowlib, repo: "hexpm", optional: false]}, {:ranch, "~> 1.4", [hex: :ranch, repo: "hexpm", optional: false]}], "hexpm"},
+  "grpc": {:git, "https://github.com/tony612/grpc-elixir.git", "01b815ee3ff11fe761f94cc4361ef861b0b12f0d", [branch: "master"]},
+  "gun": {:git, "https://github.com/ninenines/gun.git", "e49f8af96da160b0417d21d5550fedd216acc263", [tag: "1.0.0-rc.1"]},
   "jsex": {:hex, :jsex, "2.0.0", "d54a39e49418b34b1a78236a92f73e4d7c46329c220275d7223fab4b3dc6120f", [:mix], [{:jsx, "~> 2.0", [hex: :jsx, repo: "hexpm", optional: false]}], "hexpm"},
   "jsx": {:hex, :jsx, "2.9.0", "d2f6e5f069c00266cad52fb15d87c428579ea4d7d73a33669e12679e203329dd", [:mix, :rebar3], [], "hexpm"},
   "mime": {:hex, :mime, "1.3.0", "5e8d45a39e95c650900d03f897fbf99ae04f60ab1daa4a34c7a20a5151b7a5fe", [:mix], [], "hexpm"},
