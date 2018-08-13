@@ -17,20 +17,23 @@ module SyrinxClient
 
     def each
       return enum_for(:each) unless block_given?
-      99999.times do
-      # loop do
-        v = video
+      index = 1
+
+      loop do
+        v = video(index)
 
         p v.inspect
         yield v
+
+        index += 1
       end
     end
 
     private
 
-    def video
+    def video(index)
       Streamer::Video.new(
-        index: rand(0..255).to_s,
+        index: index.to_s,
         chunk: SecureRandom.uuid
       )
     end
