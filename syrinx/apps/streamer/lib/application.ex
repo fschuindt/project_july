@@ -7,7 +7,11 @@ defmodule Streamer.Application do
     import Supervisor.Spec, warn: false
 
     children = [
-      supervisor(GRPC.Server.Supervisor, [{[Streamer.Servers.Broadcast, Streamer.Servers.Tune], 7171}])
+      supervisor(GRPC.Server.Supervisor, [{
+        [Streamer.Servers.Broadcast, Streamer.Servers.Tune],
+        7171,
+        idle_timeout: 10000
+      }])
     ]
 
     opts = [strategy: :one_for_one, name: Streamer.Supervisor]
