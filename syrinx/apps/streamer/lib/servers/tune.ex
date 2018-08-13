@@ -8,7 +8,7 @@ defmodule Streamer.Servers.Tune do
   def tune(request, stream) do
     Logger.info "Started tunning | Band UID: #{request.band.uid} | Band Key: #{request.band.key}"
 
-    do_tune(stream, 0)
+    do_tune(stream, 1)
   end
 
   defp do_tune(stream, index) do
@@ -20,10 +20,12 @@ defmodule Streamer.Servers.Tune do
   end
 
   defp random_video(index) do
-    S.Video.new(index: Integer.to_string(index), chunk: random_chunk())
+    S.Video.new(
+      index: Integer.to_string(index),
+      chunk: random_chunk())
   end
 
   defp random_chunk do
-    SecureRandom.uuid <> <<0>>
+    SecureRandom.uuid
   end
 end
