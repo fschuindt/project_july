@@ -28,7 +28,6 @@ defmodule Streamer.MixProject do
     [
       {:secure_random, "~> 0.5.1"},
       {:grpc, github: "tony612/grpc-elixir", branch: "master"}
-      # {:grpc, "~> 0.3.0-alpha.2"},
     ]
   end
 end
