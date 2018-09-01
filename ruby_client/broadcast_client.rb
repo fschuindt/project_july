@@ -8,7 +8,7 @@ module SyrinxClient
     def perform
       reqs = RandomVideo.new
       resp = @stub.broadcast(reqs.each)
-      p "response: #{resp.inspect}"
+      CrudeLogger.info "response: #{resp.inspect}"
     end
   end
 
@@ -22,7 +22,7 @@ module SyrinxClient
       loop do
         v = video(index)
 
-        p v.inspect
+        CrudeLogger.info "index: #{v.index}, chunk: #{v.chunk} "
         yield v
 
         index += 1
