@@ -18,7 +18,7 @@ defmodule Streamer.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger],
+      extra_applications: [:timex],
       mod: {Streamer.Application, []}
     ]
   end
@@ -27,7 +27,8 @@ defmodule Streamer.MixProject do
   defp deps do
     [
       {:secure_random, "~> 0.5.1"},
-      {:grpc, github: "tony612/grpc-elixir", branch: "master"}
+      {:grpc, github: "tony612/grpc-elixir", branch: "master"},
+      {:timex, "~> 3.1"}
     ]
   end
 end
