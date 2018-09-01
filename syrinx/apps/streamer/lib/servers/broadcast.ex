@@ -1,9 +1,8 @@
 defmodule Streamer.Servers.Broadcast do
-  require Logger
-
   use GRPC.Server, service: Streamer.Broadcast.Service
 
   alias Streamer, as: S
+  alias Streamer.CrudeLogger, as: Logger
 
   def broadcast(request, _stream) do
     do_broadcast(request, null_band())
@@ -18,7 +17,7 @@ defmodule Streamer.Servers.Broadcast do
   end
 
   defp handle(video) do
-    IO.puts "Gathered -> index: #{video.index}, chunk: #{video.chunk}"
+    Logger.info "index: #{video.index}, chunk: #{video.chunk}"
   end
 
   defp null_band do

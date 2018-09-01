@@ -1,9 +1,8 @@
 defmodule Streamer.Servers.Tune do
-  require Logger
-
   use GRPC.Server, service: Streamer.Tune.Service
 
   alias Streamer, as: S
+  alias Streamer.CrudeLogger, as: Logger
 
   def tune(request, stream) do
     Logger.info "Started tunning | Band UID: #{request.band.uid} | Band Key: #{request.band.key}"
@@ -14,7 +13,7 @@ defmodule Streamer.Servers.Tune do
   defp do_tune(stream, index) do
     video = random_video(index)
     GRPC.Server.send_reply(stream, video)
-    Logger.info "Replied -> index: #{index}, chunk: #{video.chunk}"
+    Logger.info "index: #{index}, chunk: #{video.chunk}"
 
     do_tune(stream, index + 1)
   end
