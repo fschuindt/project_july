@@ -6,7 +6,9 @@ module SyrinxClient
     end
 
     def perform
-      @stub.tune(tune_request) { |e| puts e.inspect }
+      @stub.tune(tune_request) { |r|
+        CrudeLogger.info "index: #{r.index} chunk: #{r.chunk}"
+      }
     end
 
     private
